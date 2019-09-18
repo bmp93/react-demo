@@ -1,56 +1,79 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
-import User from '../User/User';
-import Contact from '../Contact/Contact';
-import Home from '../Home/Home';
-import Topic from '../Topic/Topic';
-import SignIn from '../SignIn/SignIn';
-import PrivateRoute from '../../utility/PrivateRoute';
-import Dashboard from '../Dashboard/Dashboard';
-import PublicRoute from '../../utility/PublicRoute';
+import Card from '../Card/Card';
+import Switch from '../Switch/Switch';
+
+// const AppContext = React.createContext({});
+
+// class AppProvider extends Component {
+//   state = {
+//     number: 10,
+//     inc: () => {
+//       this.setState({ number: this.state.number + 1 })
+//     }
+//   }
+//   render() {
+//     return (
+//       <AppContext.Provider value={this.state}>
+//         {this.props.children}
+//       </AppContext.Provider>
+//     )
+//   }
+// }
+
+// class Red extends Component<any, any> {
+//   render() {
+//     return (
+//       <AppProvider>
+//         <div className="red">
+//           <AppContext.Consumer>
+//             {(context: any) => context.number}
+//           </AppContext.Consumer>
+//           <Blue />
+//         </div>
+//       </AppProvider>
+//     )
+//   }
+// }
+
+// const Blue = () => (
+//   <div className="blue">
+//     <AppContext.Consumer>
+//       {(context: any) => <button onClick={context.inc}>INC</button>}
+//     </AppContext.Consumer>
+//     <Green />
+//   </div>
+// )
+
+// const Green = () => (
+//   <div className="green">
+//     <AppContext.Consumer>
+//       {(context: any) => context.number}
+//     </AppContext.Consumer>
+//   </div>
+// )
+
+// const App: React.FC = () => {
+//   return (
+//     <Red />
+//   );
+// }
+
+
+
 
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Router>
-        <header className="App-header">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/user">User</Link>
-            </li>
-            <li>
-              <Link to="/basicuser">User(not restricted)</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/topic">Topic</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-          </ul>
-        </header>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          {/* <Route path="/user" component={User} /> */}
-          <Route path="/contact" component={Contact} />
-          <Route path="/topic" component={Topic} />
-          <Route path="/signin" component={SignIn} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PublicRoute restricted={true} component={User} path="/user" />
-          <PublicRoute restricted={false} component={User} path="/basicuser" />
-          <Route render={() => <h1>404 Error</h1>} />
-        </Switch>
-      </Router>
+      <h1>React context api</h1>
+      <h2>Switch Theme</h2>
+      <Card />
+      <Switch />
     </div>
   );
 }
+
+
 
 export default App;
