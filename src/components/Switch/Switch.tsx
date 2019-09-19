@@ -6,9 +6,11 @@ export default function Switch() {
     const { dark, toggle } = useContext(ThemeContext);
 
     return (
-        <button className='Switch' onClick={() => toggle()}>
-            <Sun className={`icon ${!dark ? 'active' : ''}`} />
-            <Moon className={`icon ${dark ? 'active' : ''}`} />
-        </button>
+        <div className='SwitchContainer'>
+            <button className='Switch' onClick={() => toggle()}>
+                <Sun className={`icon ${!dark ? 'active' : ''}`} />
+                <Moon className={`icon ${dark ? 'active' : ''}`} />
+            </button>
+        </div>
     );
 } 

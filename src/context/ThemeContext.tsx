@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ThemeContext = React.createContext({
   dark: false,
@@ -7,12 +7,12 @@ const ThemeContext = React.createContext({
 
 export default ThemeContext;
 
-export function ThemeProvider (props) {
+export const ThemeProvider = (props) => {
   // keeps state of the current theme
   const [dark, setDark] = useState(false);
   
   // paints the app before it renders elements
-  useLayoutEffect(() => {
+  useEffect(() => {
     const lastTheme = window.localStorage.getItem('darkTheme');
     
     if (lastTheme === 'true') {
